@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
+import { db } from '../../config';
+import { ref, set } from 'firebase/database';
 
 interface TicketFormData {
-  name: string;
-  ticket: string;
+  email: string;
+  ticketType: string;
   quantity: number;
 }
 
 const TicketForm: React.FC = () => {
   const [formData, setFormData] = useState<TicketFormData>({
-    name: '',
-    ticket: '',
+    email: '',
+    ticketType: '',
     quantity: 1,
   });
 
@@ -31,7 +33,16 @@ const TicketForm: React.FC = () => {
 
   const handleSubmit = () => {
     console.log(formData);
-    // Add code here to handle form submission and ticket purchase
+
+    // Save the form data to Firebase
+    const ticketsRef = ref(db, 'tickets');
+    set(ticketsRef, formData)
+      .then(() => {
+        console.log('Ticket purchased successfully!');
+      })
+      .catch((error) => {
+        console.error('Error purchasing ticket: ', error);
+      });
   };
 
   return (
@@ -39,15 +50,15 @@ const TicketForm: React.FC = () => {
       <Text style={styles.title}>Buy Tickets</Text>
       <TextInput
         style={styles.input}
-        placeholder="Name"
-        value={formData.name}
-        onChangeText={(value) => handleInputChange('name', value)}
+        placeholder="Email"
+        value={formData.email}
+        onChangeText={(value) => handleInputChange('email', value)}
       />
       <TextInput
         style={styles.input}
-        placeholder="Ticket type"
-        value={formData.ticket}
-        onChangeText={(value) => handleInputChange('ticket', value)}
+        placeholder="Type of Ticket"
+        value={formData.ticketType}
+        onChangeText={(value) => handleInputChange('ticketType', value)}
       />
       <TextInput
         style={styles.input}
@@ -91,5 +102,6 @@ const styles = StyleSheet.create({
 });
 
 export default TicketForm;
+
 
 
