@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
 import { db } from '../../config';
-import { ref, set } from 'firebase/database';
+import { getDocs, doc, setDoc, getDoc, updateDoc } from 'firebase/firestore/lite';
+//import { ref, set } from 'firebase/database';
 
 interface TicketFormData {
   email: string;
@@ -31,19 +32,20 @@ const TicketForm: React.FC = () => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     console.log(formData);
+    const docref = doc(db, 'tickets/' + formData.email);
+    await setDoc(docref, formData, { merge: true })
 
-    // Save the form data to Firebase
-    const ticketsRef = ref(db, 'tickets');
-    set(ticketsRef, formData)
-      .then(() => {
-        console.log('Ticket purchased successfully!');
-      })
-      .catch((error) => {
-        console.error('Error purchasing ticket: ', error);
-      });
-  };
+    await updateDoc(docref, {
+      capital: true
+    });
+
+    
+
+    let r = await getDoc(docref)
+    console.log(r.data())
+  }; 
 
   return (
     <View style={styles.container}>
