@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
 import { db } from '../../config';
 import { getDocs, doc, setDoc, getDoc, updateDoc } from 'firebase/firestore/lite';
-//import { ref, set } from 'firebase/database';
+import { Picker } from '@react-native-picker/picker';
+
 
 interface TicketFormData {
   email: string;
@@ -32,7 +33,7 @@ const TicketForm: React.FC = () => {
     });
   };
 
-  const handleSubmit = async() => {
+  const handleSubmit = async () => {
     console.log(formData);
     const docref = doc(db, 'tickets/' + formData.email);
     await setDoc(docref, formData, { merge: true })
@@ -41,14 +42,20 @@ const TicketForm: React.FC = () => {
       capital: true
     });
 
-    
+
 
     let r = await getDoc(docref)
     console.log(r.data())
-  }; 
+  };
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Ticket Prices</Text>
+      <Text style={styles.ticketType}>1 Hour Ticket: 15€</Text>
+      <Text style={styles.ticketType}>2 Hour Ticket: 20€</Text>
+      <Text style={styles.ticketType}>Day Ticket: 30€</Text>
+      <Text style={styles.ticketType}>Evening Ticket: 13€</Text>
+      <View style={styles.separator} />
       <Text style={styles.title}>Buy Tickets</Text>
       <TextInput
         style={styles.input}
@@ -56,12 +63,19 @@ const TicketForm: React.FC = () => {
         value={formData.email}
         onChangeText={(value) => handleInputChange('email', value)}
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Type of Ticket"
-        value={formData.ticketType}
-        onChangeText={(value) => handleInputChange('ticketType', value)}
-      />
+      <View style={styles.pickerContainer}>
+        <Picker
+          selectedValue={formData.ticketType}
+          onValueChange={(value: any) => handleInputChange('ticketType', value)}
+          style={styles.picker}
+        >
+          <Picker.Item label="1 Hour Ticket" value="1 Hour Ticket" />
+          <Picker.Item label="2 Hour Ticket" value="2 Hour Ticket" />
+          <Picker.Item label="Day Ticket" value="Day Ticket" />
+          <Picker.Item label="Evening Ticket" value="Evening Ticket" />
+        </Picker>
+      </View>
+      <View style={{ marginBottom: 10 }} />
       <TextInput
         style={styles.input}
         placeholder="Quantity"
@@ -74,34 +88,57 @@ const TicketForm: React.FC = () => {
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center', // center content vertically
-    alignItems: 'center', // center content horizontally
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 20,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginVertical: 8,
+    color: 'blue',
   },
   input: {
     borderWidth: 1,
     borderColor: '#ccc',
-    borderRadius: 4,
     padding: 10,
     marginBottom: 10,
-    width: '100%', // set width to 100%
-    maxWidth: 500, // set max width to 500 (or any other value you want)
+    borderRadius: 5,
+    minWidth: 250,
+    maxWidth: 400,
   },
   submitButton: {
-    width: '100%', // set width to 100%
-    maxWidth: 500, // set max width to 500 (or any other value you want)
+    width: '100%',
+    maxWidth: 250,
+  },
+  ticketType: {
+    fontSize: 16,
+    marginBottom: 5,
+    maxWidth: 400,
+  },
+  separator: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    width: '100%',
+    marginVertical: 10,
+  },
+  pickerContainer: {
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 4,
+    overflow: 'hidden', // This is to make sure the border doesn't bleed outside the container
+  },
+  picker: {
+    height: 25,
+    width: 249 // You can adjust this value to suit your needs
   },
 });
+
 
 export default TicketForm;
 

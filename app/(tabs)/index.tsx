@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ScrollView, View, Text, StyleSheet, Image } from 'react-native';
 
 
+
 interface WeatherData {
   main: {
     temp: number;

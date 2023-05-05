@@ -1,7 +1,5 @@
 import { initializeApp } from 'firebase/app';
-//import { getDatabase } from 'firebase/database';
-//import 'firebase/firestore' 
-import { getFirestore, initializeFirestore} from 'firebase/firestore/lite';
+import { getFirestore, initializeFirestore } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAkDU7-_42WNZWcVhRynvB2Sqc6q3EvsQY",
@@ -15,10 +13,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
-//TODO selvitä if lause initializaatioon
-//db = initializeFirestore(app, { experimentalForceLongPolling: true });
+let db = getFirestore(app);
 
-
+if (!db) {
+  db = initializeFirestore(app, { experimentalForceLongPolling: true });
+}
 
 export { db };
+
