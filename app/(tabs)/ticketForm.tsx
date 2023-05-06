@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
+import { StyleSheet, TextInput, View, Button, Text, Alert } from 'react-native';
 import { db } from '../../config';
-import { getDocs, doc, setDoc, getDoc, updateDoc } from 'firebase/firestore/lite';
+import {  doc, setDoc, getDoc, updateDoc } from 'firebase/firestore/lite';
 import { Picker } from '@react-native-picker/picker';
 
 
@@ -42,10 +42,15 @@ const TicketForm: React.FC = () => {
       capital: true
     });
 
-
-
     let r = await getDoc(docref)
     console.log(r.data())
+
+    // Show a pop-up message to the user
+    Alert.alert(
+      'Transaction Successful',
+      'Your have made a purchase!',
+      [{ text: 'OK', onPress: () => console.log('OK Pressed') }]
+    );
   };
 
   return (
@@ -120,6 +125,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 5,
     maxWidth: 400,
+    color: 'black'
   },
   separator: {
     borderBottomWidth: 1,

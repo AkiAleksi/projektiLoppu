@@ -49,18 +49,18 @@ const TalmaGlacierFrontPage: React.FC = () => {
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <Text style={styles.title}>Welcome to Talma Glacier</Text>
         <View style={styles.separator} />
-        <Text style={styles.description}>Explore the beauty of Talma Glacier and its surrounding wilderness.</Text>
+        <Text style={styles.description}>Come and enjoy the well-maintained slopes of Talma Glacier and experience the beauty of the surrounding wilderness.</Text>
         <Image source={{ uri: 'https://images.unsplash.com/photo-1557977398-18b39bf47159?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2145&q=80' }} style={styles.image} />
         <View style={styles.separator} />
-        <Text style={styles.title}>Weather Information</Text>
+        <Text style={styles.title}>Current Weather Info</Text>
         {weather ? (
           <View style={styles.weatherContainer}>
             <View style={styles.weatherRow}>
               <Text style={styles.infoText}>Temperature: {weather.main?.temp}°C</Text>
               <Image source={{ uri: weatherIcon() }} style={styles.weatherIcon} />
             </View>
-            <Text style={styles.infoText}>Description: {weather.weather[0]?.description}</Text>
-            <Text style={styles.infoText}>Wind: {weather.wind?.speed} m/s</Text>
+            <Text style={styles.weatherInfo}>Description: {weather.weather[0]?.description}</Text>
+            <Text style={styles.weatherInfo2}>Wind: {weather.wind?.speed} m/s</Text>
           </View>
         ) : (
           <Text style={styles.infoText}>Loading weather information...</Text>
@@ -71,13 +71,14 @@ const TalmaGlacierFrontPage: React.FC = () => {
         <Text style={styles.infoText}>Sat-Sun 10:00-20:00</Text>
         <View style={styles.separator} />
         <Text style={styles.title}>Contact us</Text>
-        <Text style={styles.infoText}>Bossman: Jukka Jalkonen</Text>
-        <Text style={styles.infoText}>email: Jukka@Jalkonen.com</Text>
-        <Text style={styles.infoText}>Phone: 0451377975</Text>
+        <Text style={styles.infoText}>Boss: Bosse Bossman</Text>
+        <Text style={styles.infoText}>email: Bosse@Bossman.com</Text>
+        <Text style={styles.infoText}>Phone: 09797565</Text>
       </ScrollView>
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
@@ -111,6 +112,19 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginVertical: 4,
     color: 'black', // Added color property
+  },
+  weatherInfo: {
+    fontSize: 14,
+    marginVertical: 4,
+    marginBottom: 15,
+    marginLeft: -55, // Added marginLeft property
+    color: 'black'
+  },
+  weatherInfo2: {
+    fontSize: 14,
+    marginVertical: 4,
+    marginLeft: -97, // Added marginLeft property
+    color: 'black'
   },
   contactInfo: {
     fontSize: 18,
