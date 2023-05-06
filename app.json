@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Ski App",
-    "slug": "ski-app",
+    "name": "projekti-loppu",
+    "slug": "projekti-loppu",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -27,6 +27,12 @@
     "web": {
       "bundler": "metro",
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c6ed4763-0747-4e7b-a8df-d71807b8d48b"
+      }
+    },
+    "owner": "akihie"
   }
 }
