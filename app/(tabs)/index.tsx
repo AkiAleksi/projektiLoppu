@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginVertical: 8,
-    color: 'blue', // Added color property
+    color: 'blue',
   },
   separator: {
     height: 1,
@@ -106,31 +106,31 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 16,
     marginVertical: 8,
-    color: 'black', // Added color property
+    color: 'black',
   },
   infoText: {
     fontSize: 14,
     marginVertical: 4,
-    color: 'black', // Added color property
+    color: 'black',
   },
   weatherInfo: {
     fontSize: 14,
     marginVertical: 4,
     marginBottom: 15,
-    marginLeft: -55, // Added marginLeft property
+    marginLeft: -55,
     color: 'black'
   },
   weatherInfo2: {
     fontSize: 14,
     marginVertical: 4,
-    marginLeft: -97, // Added marginLeft property
+    marginLeft: -97,
     color: 'black'
   },
   contactInfo: {
     fontSize: 18,
     fontWeight: 'bold',
     marginVertical: 8,
-    color: 'blue', // Added color property
+    color: 'blue',
   },
   weatherContainer: {
     alignItems: 'center',
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   weatherText: {
     fontSize: 16,
     marginVertical: 4,
-    color: 'red', // Added color property
+    color: 'red',
   },
   image: {
     width: 200,

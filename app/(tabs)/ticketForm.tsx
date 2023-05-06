@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Button, Text, Alert } from 'react-native';
 import { db } from '../../config';
-import {  doc, setDoc, getDoc, updateDoc } from 'firebase/firestore/lite';
+import { doc, setDoc, getDoc, updateDoc } from 'firebase/firestore/lite';
 import { Picker } from '@react-native-picker/picker';
 
 
@@ -20,10 +20,8 @@ const TicketForm: React.FC = () => {
 
   const handleInputChange = (key: keyof TicketFormData, value: string | number) => {
     if (key === 'quantity') {
-      // convert empty strings to 0, otherwise parse the value
       value = value === '' ? 0 : Number(value);
       if (isNaN(value)) {
-        // if the value is not a valid number, set it to 0
         value = 0;
       }
     }
@@ -45,10 +43,10 @@ const TicketForm: React.FC = () => {
     let r = await getDoc(docref)
     console.log(r.data())
 
-    // Show a pop-up message to the user
+    // pop-up for the user after buying ticket
     Alert.alert(
       'Transaction Successful',
-      'Your have made a purchase!',
+      'You have made a purchase!',
       [{ text: 'OK', onPress: () => console.log('OK Pressed') }]
     );
   };
@@ -137,11 +135,11 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderWidth: 1,
     borderRadius: 4,
-    overflow: 'hidden', // This is to make sure the border doesn't bleed outside the container
+    overflow: 'hidden',
   },
   picker: {
     height: 25,
-    width: 249 // You can adjust this value to suit your needs
+    width: 249
   },
 });
 

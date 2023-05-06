@@ -26,14 +26,14 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="info-circle" color={color} />,
         }}
       />
-       <Tabs.Screen
+      <Tabs.Screen
         name="ticketForm"
         options={{
           title: 'Buy tickets',
           tabBarIcon: ({ color }) => <TabBarIcon name="shopping-cart" color={color} />,
         }}
       />
-     
+
       <Tabs.Screen
         name="two"
         options={{
@@ -41,7 +41,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="map-marker" color={color} />,
         }}
       />
-      
+
     </Tabs>
   );
 }
