@@ -14,7 +14,7 @@ interface TicketFormData {
 const TicketForm: React.FC = () => {
   const [formData, setFormData] = useState<TicketFormData>({
     email: '',
-    ticketType: '',
+    ticketType: '1 Hour Ticket',
     quantity: 1,
   });
 
@@ -32,7 +32,6 @@ const TicketForm: React.FC = () => {
   };
 
   const handleSubmit = async () => {
-    console.log(formData);
     const docref = doc(db, 'tickets/' + formData.email);
     await setDoc(docref, formData, { merge: true })
 
@@ -41,13 +40,12 @@ const TicketForm: React.FC = () => {
     });
 
     let r = await getDoc(docref)
-    console.log(r.data())
 
     // pop-up for the user after buying ticket
     Alert.alert(
       'Transaction Successful',
       'You have made a purchase!',
-      [{ text: 'OK', onPress: () => console.log('OK Pressed') }]
+      [{ text: 'OK' }]
     );
   };
 

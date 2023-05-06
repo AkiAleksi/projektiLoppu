@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "projekti-loppu",
-    "slug": "projekti-loppu",
+    "name": "Ski App",
+    "slug": "ski-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
