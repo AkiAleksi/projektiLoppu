@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "projekti-loppu",
-    "slug": "projekti-loppu",
+    "name": "skiApp",
+    "slug": "ski-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -16,13 +16,20 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.akihie.skiapp"
     },
     "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyA_-NVr_v3I5LSHd_6fx8UC6R60-Tk-XXc"
+        }
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.akihie.skiapp"
     },
     "web": {
       "bundler": "metro",
@@ -33,6 +40,13 @@
         "projectId": "c6ed4763-0747-4e7b-a8df-d71807b8d48b"
       }
     },
-    "owner": "akihie"
+    "owner": "akihie",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c6ed4763-0747-4e7b-a8df-d71807b8d48b"
+    }
   }
 }
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, useColorScheme, Linking } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 
 export default function ContactInfoScreen() {
   const colorScheme = useColorScheme();
@@ -16,6 +16,7 @@ export default function ContactInfoScreen() {
 
   return (
     <MapView
+      provider={PROVIDER_GOOGLE}
       style={{ flex: 1 }}
       initialRegion={{
         latitude: 60.397455,
