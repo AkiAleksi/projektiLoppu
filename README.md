@@ -40,7 +40,7 @@ This project is a mobile app for a ski resort. This app was tested and developed
 
     Install the Expo client app on your Android device and use it to scan the QR code from the previous step. This should launch the app on your device.
 
-### Made by
+### Made By
 ---
 Aki Hietamaki
 
