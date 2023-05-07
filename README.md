@@ -1,6 +1,6 @@
 # projektiLoppu
 
-This project is a mobile app for a ski resort. It was built using React Native and Expo. The code is written in TypeScript. The app uses Firestore Database.
+This project is a mobile app for a ski resort. This app was tested and developed specifically for the Android platform. It was built using React Native and Expo. The code is written in TypeScript. The app uses Firestore Database.
 
 ## Getting Started
 
@@ -38,7 +38,7 @@ This project is a mobile app for a ski resort. It was built using React Native a
 
 5. Launch the app:
 
-    Install the Expo client app on your mobile device and use it to scan the QR code from the previous step. This should launch the app on your device.
+    Install the Expo client app on your Android device and use it to scan the QR code from the previous step. This should launch the app on your device.
 
 ### Made by
 ---
