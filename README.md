@@ -40,6 +40,6 @@ This project is a mobile app for a ski resort built using React Native and Expo.
 
     Install the Expo client app on your mobile device and use it to scan the QR code from the previous step. This should launch the app on your device.
 
-### Made by:
+### Made by
 Aki Hietamaki
 
