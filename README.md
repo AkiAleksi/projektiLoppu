@@ -7,7 +7,7 @@ This project is a mobile app for a ski resort built using React Native and Expo.
 1. Clone the Github repository:
 
     ```
-    git clone "repo"
+    git clone https://github.com/AkiAleksi/projektiLoppu.git
     ```
 
 2. Install dependencies:
